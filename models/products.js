@@ -15,6 +15,7 @@ default : false
 },
 rating : {
 type : Number,
+max : 5,
 default : 4.5
 },
 createdAt : {
