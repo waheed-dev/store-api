@@ -34,6 +34,10 @@ const getAllProducts = async (req,res) => {
     else {
         result.sort('createdAt')
     }
+    const page = Number(req.query.page) || 1
+    const limit = Number(req.query.limit) || 10
+    const skip = (page - 1) * limit
+    result = result.skip(skip).limit(limit)
     const items = await result
     res.status(200).json({items,nbOfHita : items.length})
     }
